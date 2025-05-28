@@ -15,6 +15,11 @@
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .poster {
@@ -30,6 +35,11 @@
 .title {
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+.description {
+  color: #666;
+  margin-top: 0.5rem;
 }
 
 .info {
@@ -50,4 +60,54 @@
 
 .button:hover {
   background: #2563eb;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .poster {
+    height: 12rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+  }
+
+  .info {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .poster {
+    height: 10rem;
+  }
+}
+.searchInput {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .searchInput {
+    max-width: 300px;
+  }
 }

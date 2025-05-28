@@ -1,5 +1,15 @@
-const movies = [
-  { id: 1, title: 'Inception', poster: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1', genre: 'Sci-Fi', showtime: '18:00', description: 'A mind-bending heist movie directed by Christopher Nolan' },
-  { id: 2, title: 'The Dark Knight', poster: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1', genre: 'Action', showtime: '20:00', description: 'A superhero masterpiece featuring Batman' },
-  { id: 3, title: 'Parasite', poster: 'https://images.unsplash.com/photo-1596163293416-62ea7cf4a8b7', genre: 'Drama', showtime: '22:00', description: 'A South Korean thriller with a social twist' },
-];
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Booking from './pages/Booking';
+import { movies } from './data/movies';
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home movies={movies} />} />
+      <Route path="/booking/:id" element={<Booking movies={movies} />} />
+    </Routes>
+  );
+}
+
+export default App;
