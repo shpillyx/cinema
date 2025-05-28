@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getBookedSeats } from '../services/BookingService';
+import styles from './CinemaHall.module.css';
 
 function CinemaHall({ movieId, selectedSeats, setSelectedSeats }) {
   const [bookedSeats, setBookedSeats] = useState([]);
@@ -22,9 +23,9 @@ function CinemaHall({ movieId, selectedSeats, setSelectedSeats }) {
   const seatsPerRow = 8;
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Select Seats</h2>
-      <div className="grid grid-cols-8 gap-2">
+    <div className={styles.container}>
+      <h2 className={styles.title}>Select Seats</h2>
+      <div className={styles.grid}>
         {Array.from({ length: rows }).map((_, row) =>
           Array.from({ length: seatsPerRow }).map((_, seat) => {
             const seatId = `${row}-${seat}`;
@@ -33,7 +34,9 @@ function CinemaHall({ movieId, selectedSeats, setSelectedSeats }) {
             return (
               <button
                 key={seatId}
-                className={`w-10 h-10 rounded ${isBooked ? 'bg-red-500' : isSelected ? 'bg-blue-500' : 'bg-green-500'} text-white`}
+                className={`${styles.seat} ${
+                  isBooked ? styles.seatBooked : isSelected ? styles.seatSelected : styles.seatAvailable
+                }`}
                 onClick={() => toggleSeat(row, seat)}
                 disabled={isBooked}
               >
@@ -43,7 +46,7 @@ function CinemaHall({ movieId, selectedSeats, setSelectedSeats }) {
           })
         )}
       </div>
-      <p className="mt-4">Selected seats: {selectedSeats.join(', ') || 'None'}</p>
+      <p className={styles.selectedSeats}>Selected seats: {selectedSeats.join(', ') || 'None'}</p>
     </div>
   );
 }
