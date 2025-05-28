@@ -7,9 +7,9 @@ function Header() {
       <div className={styles.container}>
         <Link to="/" className={styles.logo}>CinemaStar</Link>
         <nav className={styles.nav}>
-          <Link to="/" className={styles.navLink}>Home</Link>
-          <Link to="/schedule" className={styles.navLink}>Schedule</Link>
-          <Link to="/contact" className={styles.navLink}>Contact</Link>
+          <Link to="/" className={styles.navLink}>Головна</Link>
+          <Link to="/schedule" className={styles.navLink}>Розклад</Link>
+          <Link to="/contact" className={styles.navLink}>Контакти</Link>
         </nav>
       </div>
     </header>

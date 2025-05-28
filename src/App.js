@@ -3,8 +3,10 @@ import Home from './components/Home';
 import Booking from './components/Booking';
 
 const movies = [
-  { id: 1, title: 'Movie 1', poster: 'https://via.placeholder.com/300x400', genre: 'Action', showtime: '18:00', description: 'Great action movie' },
-  { id: 2, title: 'Movie 2', poster: 'https://via.placeholder.com/300x400', genre: 'Comedy', showtime: '20:00', description: 'Funny comedy' },
+  { "id": 1, "title": "Інцепція", "poster": "https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1", "genre": "Наукова фантастика", "showtime": "18:00", "description": "Фільм про злом думок" },
+    { "id": 2, "title": "Темний лицар", "poster": "https://images.unsplash.com/photo-1536440136628-849c177e76a1", "genre": "Екшн", "showtime": "20:00", "description": "Шедевр про Бетмена" },
+    { "id": 3, "title": "Паразити", "poster": "https://images.unsplash.com/photo-1596163293416-62ea7cf4a8b7", "genre": "Драма", "showtime": "22:00", "description": "Корейський трилер із соціальним змістом" },
+    { "id": 4, "title": "Шрек", "poster": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c", "genre": "Анімація", "showtime": "16:00", "description": "Смішна пригода огрів" }
 ];
 
 function App() {

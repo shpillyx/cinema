@@ -43,11 +43,11 @@
 }
 
 .seatSelected {
-  background: #3b82f6;
+  background: #f97316; /* Оранжевий для вибраних, але не заброньованих */
 }
 
 .seatBooked {
-  background: #ef4444;
+  background: #ef4444; /* Червоний для заброньованих */
 }
 
 .selectedSeats {

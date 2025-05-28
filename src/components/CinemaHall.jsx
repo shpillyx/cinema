@@ -24,7 +24,7 @@ function CinemaHall({ movieId, selectedSeats, setSelectedSeats }) {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Select Seats</h2>
+      <h2 className={styles.title}>Виберіть місця</h2>
       <div className={styles.grid}>
         {Array.from({ length: rows }).map((_, row) =>
           Array.from({ length: seatsPerRow }).map((_, seat) => {
@@ -46,7 +46,7 @@ function CinemaHall({ movieId, selectedSeats, setSelectedSeats }) {
           })
         )}
       </div>
-      <p className={styles.selectedSeats}>Selected seats: {selectedSeats.join(', ') || 'None'}</p>
+      <p className={styles.selectedSeats}>Вибрані місця: {selectedSeats.join(', ') || 'Немає'}</p>
     </div>
   );
 }

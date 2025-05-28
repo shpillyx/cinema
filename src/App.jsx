@@ -10,9 +10,10 @@ function App() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    axios.get('https://my-json-server.typicode.com/shpillyx/cinema-movies/movies')
+    axios
+      .get('https://my-json-server.typicode.com/shpillyx/cinema-movies/movies')
       .then(response => setMovies(response.data))
-      .catch(error => console.error('Error fetching movies:', error));
+      .catch(error => console.error('Помилка завантаження фільмів:', error));
   }, []);
 
   return (
@@ -22,8 +23,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home movies={movies} />} />
           <Route path="/booking/:id" element={<Booking movies={movies} />} />
-          <Route path="/schedule" element={<div>Schedule Page (Under Construction)</div>} />
-          <Route path="/contact" element={<div>Contact Page (Under Construction)</div>} />
+          <Route path="/schedule" element={<div>Сторінка розкладу (у розробці)</div>} />
+          <Route path="/contact" element={<div>Сторінка контактів (у розробці)</div>} />
         </Routes>
       </main>
       <Footer />

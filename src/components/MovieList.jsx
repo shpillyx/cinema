@@ -13,7 +13,7 @@ function MovieList({ movies }) {
     <div className={styles.container}>
       <input
         type="text"
-        placeholder="Search by movie title..."
+        placeholder="Пошук за назвою фільму..."
         className={styles.searchInput}
         value={searchTerm}
         onChange={e => setSearchTerm(e.target.value)}
@@ -25,10 +25,10 @@ function MovieList({ movies }) {
             <div className={styles.content}>
               <h3 className={styles.title}>{movie.title}</h3>
               <p className={styles.description}>{movie.description}</p>
-              <p className={styles.info}>Genre: {movie.genre}</p>
-              <p className={styles.info}>Showtime: {movie.showtime}</p>
+              <p className={styles.info}>Жанр: {movie.genre}</p>
+              <p className={styles.info}>Час сеансу: {movie.showtime}</p>
               <Link to={`/booking/${movie.id}`} className={styles.button}>
-                Book Now
+                Забронювати
               </Link>
             </div>
           </div>
