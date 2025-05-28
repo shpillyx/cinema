@@ -38,3 +38,37 @@
 .selectedSeats {
   margin-top: 1rem;
 }
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 0.3rem;
+  }
+
+  .seat {
+    width: 35px;
+    height: 35px;
+    font-size: 0.75rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .selectedSeats {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.2rem;
+  }
+
+  .seat {
+    width: 30px;
+    height: 30px;
+    font-size: 0.625rem;
+  }
+}
