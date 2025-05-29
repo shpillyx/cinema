@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Booking from './pages/Booking';
+import BookingHistory from './pages/BookingHistory';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home movies={movies} />} />
           <Route path="/booking/:id" element={<Booking movies={movies} />} />
+          <Route path="/history" element={<BookingHistory movies={movies} />} />
           <Route path="/schedule" element={<div>Сторінка розкладу (у розробці)</div>} />
           <Route path="/contact" element={<div>Сторінка контактів (у розробці)</div>} />
         </Routes>

@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CinemaHall from '../components/CinemaHall';
+import CinemaHall from './CinemaHall';
 import { saveBooking, getBookedSeats } from '../services/BookingService';
 import styles from './Booking.module.css';
 
@@ -13,12 +13,20 @@ function Booking({ movies }) {
   const [userData, setUserData] = useState({ name: '', phone: '', email: '' });
   const [bookedSeats, setBookedSeats] = useState([]);
 
+  useEffect(() => {
+    const fetchBookedSeats = async () => {
+      const seats = await getBookedSeats(id);
+      setBookedSeats(seats);
+    };
+    fetchBookedSeats();
+  }, [id]);
+
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   };
 
-  const handleBooking = () => {
+  const handleBooking = async () => {
     if (!selectedSeats.length) {
       toast.error('Будь ласка, виберіть хоча б одне місце!');
       return;
@@ -36,11 +44,10 @@ function Booking({ movies }) {
       return;
     }
 
-    saveBooking(id, selectedSeats, userData);
-    setBookedSeats(getBookedSeats(id)); // Оновлюємо заброньовані місця
-    toast.success(`Бронювання успішне! Ви забронювали місця: ${selectedSeats.join(', ')}`);
-    setSelectedSeats([]); // Очищаємо вибрані місця
-    setUserData({ name: '', phone: '', email: '' }); // Очищаємо форму
+    await saveBooking(id, selectedSeats, userData);
+    toast.success(`Бронювання успішне! Онови bookings.json у папці public: ${selectedSeats.join(', ')}`);
+    setSelectedSeats([]);
+    setUserData({ name: '', phone: '', email: '' });
   };
 
   if (!movie) return <div>Фільм не знайдено</div>;
@@ -52,7 +59,7 @@ function Booking({ movies }) {
         movieId={id}
         selectedSeats={selectedSeats}
         setSelectedSeats={setSelectedSeats}
-        onBookingSuccess={() => setBookedSeats(getBookedSeats(id))}
+        bookedSeats={bookedSeats}
       />
       <div className={styles.formSection}>
         <input

@@ -12,14 +12,89 @@
   color: #2d3748;
 }
 
+.loginForm {
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.button {
+  background: #3b82f6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: #2563eb;
+}
+
+.userInfo {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #2d3748;
+  margin-bottom: 2rem;
+}
+
 @media (max-width: 768px) {
   .title {
     font-size: 2rem;
+  }
+
+  .loginForm {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .input {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .userInfo {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .title {
     font-size: 1.5rem;
+  }
+
+  .input {
+    padding: 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .button {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .userInfo {
+    font-size: 0.875rem;
   }
 }

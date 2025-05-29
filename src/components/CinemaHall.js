@@ -1,14 +1,7 @@
 import { useState, useEffect } from 'react';
-import { getBookedSeats } from '../services/BookingService';
 import styles from './CinemaHall.module.css';
 
-function CinemaHall({ movieId, selectedSeats, setSelectedSeats, onBookingSuccess }) {
-  const [bookedSeats, setBookedSeats] = useState([]);
-
-  useEffect(() => {
-    setBookedSeats(getBookedSeats(movieId));
-  }, [movieId]);
-
+function CinemaHall({ movieId, selectedSeats, setSelectedSeats, bookedSeats }) {
   const toggleSeat = (row, seat) => {
     const seatId = `${row}-${seat}`;
     if (bookedSeats.includes(seatId)) return;
